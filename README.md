@@ -9,8 +9,12 @@ Your [contributions](contributing.md) are always welcome !
 
 ## Searches
 
-Repository | Description
+Search | Description
 ---- | ----
+```
+| lookup open_nameservers ip 												| Lookup nameservers from file
+| stats count by ip
+```
 
 ## References
 [Hunting with Splunk: The Basics](https://www.splunk.com/blog/2017/07/06/hunting-with-splunk-the-basics.html)
