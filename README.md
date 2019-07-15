@@ -18,7 +18,7 @@ Lookup Search
 Search Index for earliest logs
 
 ```
-|index=index_name  earliest=0 
+index=index_name  earliest=0 
 ```
 
 ### Windows Log searches
