@@ -38,7 +38,7 @@ sourcetype="wineventlog:security"EventCode=4688
 | table New_Process_Name, count, Creator_Process_Name
 | sort count
 ```
-	
+
 ## References
 [Hunting with Splunk: The Basics](https://www.splunk.com/blog/2017/07/06/hunting-with-splunk-the-basics.html)
 [Windows MITRE Logging Cheat Sheet](https://static1.squarespace.com/static/552092d5e4b0661088167e5c/t/5b8f091c0ebbe8644d3a886c/1536100639356/Windows+ATT%26CK_Logging+Cheat+Sheet_ver_Sept_2018.pdf)
