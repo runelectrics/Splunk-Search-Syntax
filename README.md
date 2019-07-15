@@ -14,6 +14,13 @@ Lookup Search
 | lookup open_nameservers ip
 | stats count by ip
 ```
+
+Search Index for earliest logs
+
+```
+|index=index_name  earliest=0 
+```
+
 ### Windows Log searches
 Monitor For anomalous administrator processes
 ```
