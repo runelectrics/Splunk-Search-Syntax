@@ -7,7 +7,7 @@
 
 Your [contributions](contributing.md) are always welcome !
 
-## Searches
+## General Searches
 
 Lookup Search
 ```
@@ -21,7 +21,7 @@ Search Index for earliest logs
 index=index_name  earliest=0 
 ```
 
-### Windows Log searches
+### Windows Log Searches
 Monitor For anomalous administrator processes
 ```
 index=windows LogName=Security EventCode=4688 NOT (Account_Name=*$) (arp.exe OR at.exe OR bcdedit.exe OR bcp.exe OR chcp.exe OR cmd.exe OR cscript.exe OR csvde OR dsquery.exe OR ipconfig.exe OR mimikatz.exe OR nbtstat.exe OR nc.exe OR netcat.exe OR netstat.exe OR nmap OR nslookup.exe OR netsh OR OSQL.exe OR ping.exe OR powershell.exe OR powercat.ps1 OR psexec.exe OR psexecsvc.exe OR psLoggedOn.exe OR procdump.exe OR qprocess.exe OR query.exe OR rar.exe OR reg.exe OR route.exe OR runas.exe OR rundll32 OR schtasks.exe OR sethc.exe OR sqlcmd.exe OR sc.exe OR ssh.exe OR sysprep.exe OR systeminfo.exe OR system32\\net.exe OR reg.exe OR tasklist.exe OR tracert.exe OR vssadmin.exe OR whoami.exe OR winrar.exe OR wscript.exe OR "winrm.*" OR "winrs.*" OR wmic.exe OR wsmprovhost.exe OR wusa.exe)
@@ -46,6 +46,28 @@ sourcetype="wineventlog:security"EventCode=4688
 | sort count
 ```
 
+### Proxy/Web Log Searches
+Extract domain/uri/parameter from url string
+```
+| rex field=url "(?<domain>^\w+:\/\/[^\/]+\/)(?<uri>.+)(\?(?<parameter>.+))$"
+```
+
+### Misc.
+Delimiter by semicolon
+```
+| makemv delim=";"
+```
+
+Geolocate by IP address
+```
+| iplocation ipaddress
+| table Country City
+```
+
+Remove the object name from a datamodel search
+```
+| `drop_dm_object_name("Web")`
+```
 ## References
 
 [Hunting with Splunk: The Basics](https://www.splunk.com/blog/2017/07/06/hunting-with-splunk-the-basics.html)
